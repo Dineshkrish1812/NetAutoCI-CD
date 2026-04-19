@@ -1,0 +1,9 @@
+- name: Test Config
+  hosts: routers
+  gather_facts: no
+
+  tasks:
+    - name: Show IP
+      ios_command:
+        commands:
+          - show ip interface brief
