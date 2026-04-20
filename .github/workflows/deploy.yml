@@ -1,0 +1,17 @@
+name: Network Automation
+
+on: [push]
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Run Ansible Playbook
+      run: |
+        cd /mnt/c/Users/Dinesh/project/NetAutoCI-CD
+        source ansible-env/bin/activate
+        ansible-playbook -i inventory.ini playbook.yml  
