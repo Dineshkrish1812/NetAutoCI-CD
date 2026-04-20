@@ -10,10 +10,18 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v3
 
+    - name: Debug - show files
+      run: |
+        pwd
+        ls -l
+
     - name: Install Ansible
       run: |
         python3 -m pip install --upgrade pip
-        pip install --default-timeout=1000 --retries 5 ansible
+        pip3 install ansible
+
+    - name: Check Ansible version
+      run: ansible --version
 
     - name: Run Playbook
       run: |
