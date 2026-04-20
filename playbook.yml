@@ -1,0 +1,18 @@
+- name: Test Config
+  hosts: routers
+  gather_facts: no
+  vars:
+    ansible_connection: network_cli
+    ansible_network_os: ios
+    ansible_network_cli_ssh_type: paramiko
+
+  tasks:
+    - name: Show IP Interface Brief
+      cisco.ios.ios_command:
+        commands:
+          - show ip interface brief
+      register: output
+
+    - name: Print output
+      debug:
+        var: output.stdout_lines
