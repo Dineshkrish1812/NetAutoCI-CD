@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.env
+
+# Ansible
+*.retry
+
+# SSH Keys (IMPORTANT 🚨)
+*.pem
+*.key
+id_rsa*
+id_dsa*
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Secrets (VERY IMPORTANT 🚨)
+secrets.yml
+*.vault
+
+# Local environments and runners
+ansible-env/
+actions-runner/
+
+# Optional: structure.txt if you don't want it tracked
+# structure.txt
+
+# Terraform (if later you use)
+.terraform/
+*.tfstate
+*.tfstate.backup
+
+__pycache__/
+*.pyc
+.venv
+.env
+*.retry
+*.pem, *.key
+*.log
+.vscode/
