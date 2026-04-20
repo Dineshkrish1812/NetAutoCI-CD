@@ -26,3 +26,5 @@ jobs:
     - name: Run Playbook
       run: |
         ansible-playbook -i inventory.ini playbook.yml
+
+#new
