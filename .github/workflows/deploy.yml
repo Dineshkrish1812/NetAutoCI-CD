@@ -13,7 +13,7 @@ jobs:
     - name: Install Ansible
       run: |
         python3 -m pip install --upgrade pip
-        pip install ansible
+        pip install --default-timeout=1000 --retries 5 ansible
 
     - name: Run Playbook
       run: |
