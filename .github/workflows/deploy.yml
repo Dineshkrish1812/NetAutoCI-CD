@@ -18,6 +18,9 @@ jobs:
         pip install ansible paramiko
         ansible-galaxy collection install cisco.ios
 
+    - name: Create Vault Password File
+      run: echo "${{ secrets.VAULT_PASS }}" > vault_pass.txt
+
     - name: Run Playbook
       run: |
         source ansible-env/bin/activate

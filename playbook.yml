@@ -1,14 +1,10 @@
-- name: Test Config
+- name: Cisco IOS Test
   hosts: routers
   gather_facts: no
-  vars:
-    ansible_connection: network_cli
-    ansible_network_os: ios
-    ansible_network_cli_ssh_type: paramiko
-    ansible_password: "{{ lookup('env', 'ANSIBLE_PASSWORD') }}"
 
   tasks:
-    - name: Show IP Interface Brief
+
+    - name: Run show command
       cisco.ios.ios_command:
         commands:
           - show ip interface brief

@@ -1,0 +1,43 @@
+- name: Pre-check interface
+  cisco.ios.ios_command:
+    commands:
+      - show ip interface brief
+  register: precheck
+
+- name: Show precheck output
+  debug:
+    var: precheck.stdout_lines
+
+- name: Backup running config
+  cisco.ios.ios_command:
+    commands:
+      - show running-config
+  register: backup_output
+
+- name: Save backup to file
+  copy:
+    content: "{{ backup_output.stdout[0] }}"
+    dest: "backup/{{ inventory_hostname }}.cfg"
+
+- name: Configure subinterface
+  cisco.ios.ios_config:
+    lines:
+      - encapsulation dot1Q {{ vlan_id }}
+      - ip address {{ ip_address }} {{ subnet_mask }}
+    parents:
+      - interface {{ interface_name }}.{{ vlan_id }}
+
+- name: Save running config
+  cisco.ios.ios_command:
+    commands:
+      - write memory
+
+- name: Post-check interface
+  cisco.ios.ios_command:
+    commands:
+      - show ip interface brief
+  register: postcheck
+
+- name: Show postcheck output
+  debug:
+    var: postcheck.stdout_lines

@@ -1,0 +1,4 @@
+vlan_id: 20
+ip_address: 192.168.20.1
+subnet_mask: 255.255.255.0
+interface_name: GigabitEthernet0/0
