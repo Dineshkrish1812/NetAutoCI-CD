@@ -29,6 +29,17 @@ Thumbs.db
 secrets.yml
 *.vault
 
+#environment
+
+ansible-env/
+venv/
+__pycache__/
+*.pyc
+
+
+# Misc
+*.log
+
 # Local environments and runners
 ansible-env/
 actions-runner/
